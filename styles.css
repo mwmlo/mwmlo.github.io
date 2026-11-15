@@ -95,55 +95,6 @@ body {
   box-shadow: var(--shadow);
 }
 
-/* Animated SVG mini cross-stitches in UI */
-.mini-stitch {
-  width: 15px;
-  height: 15px;
-  display: inline-block;
-  flex-shrink: 0;
-}
-
-.mini-stitch path {
-  fill: none;
-  stroke: var(--accent);
-  stroke-width: 2.3;
-  stroke-linecap: round;
-  stroke-dasharray: 16;
-  stroke-dashoffset: 16;
-}
-
-.mini-stitch .thread-a {
-  animation: sew-thread-a 3.6s ease-in-out infinite;
-}
-
-.mini-stitch .thread-b {
-  animation: sew-thread-b 3.6s ease-in-out infinite;
-}
-
-.stitch-divider .mini-stitch:nth-child(2) path { animation-delay: 0.25s; }
-.stitch-divider .mini-stitch:nth-child(3) path { animation-delay: 0.5s; }
-.stitch-divider .mini-stitch:nth-child(4) path { animation-delay: 0.75s; }
-.stitch-divider .mini-stitch:nth-child(5) path { animation-delay: 1s; }
-
-@keyframes sew-thread-a {
-  0% { stroke-dashoffset: 16; opacity: 0.3; }
-  18% { stroke-dashoffset: 0; opacity: 1; }
-  85% { stroke-dashoffset: 0; opacity: 1; }
-  100% { stroke-dashoffset: -16; opacity: 0.3; }
-}
-
-@keyframes sew-thread-b {
-  0%, 16% { stroke-dashoffset: 16; opacity: 0.3; }
-  36% { stroke-dashoffset: 0; opacity: 1; }
-  85% { stroke-dashoffset: 0; opacity: 1; }
-  100% { stroke-dashoffset: -16; opacity: 0.3; }
-}
-
-.brand-mark {
-  width: 16px;
-  height: 16px;
-}
-
 .site-nav {
   display: flex;
   align-items: center;
@@ -306,19 +257,6 @@ h1 em {
 
 .btn-secondary:hover {
   border-color: var(--ink);
-}
-
-/* Stitched Dividers */
-.stitch-divider {
-  display: flex;
-  justify-content: center;
-  gap: 1.4rem;
-  margin: 3.25rem 0;
-  color: var(--accent);
-  opacity: 0.55;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  user-select: none;
 }
 
 /* Sections */
@@ -600,12 +538,7 @@ h1 em {
     scroll-behavior: auto;
   }
   .patch-card,
-  .btn,
-  .swatch {
+  .btn {
     transition: none;
-  }
-  .mini-stitch path {
-    animation: none;
-    stroke-dashoffset: 0;
   }
 }
