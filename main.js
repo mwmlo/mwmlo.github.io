@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     theme: 'ecru',
     paintingId: 'water-lilies',
     autoCycle: true,
-    cycleDelayMs: 3000,
+    cycleDelayMs: 1000,
     onCountChange: (count) => {
       stitchCountEl.textContent = count.toLocaleString();
     },

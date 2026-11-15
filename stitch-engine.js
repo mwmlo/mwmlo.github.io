@@ -15,7 +15,7 @@ class StitchEngine {
     this.theme = options.theme || 'ecru';
     this.paintingId = options.paintingId || 'water-lilies';
     this.autoCycle = options.autoCycle !== false;
-    this.cycleDelayMs = options.cycleDelayMs || 3000;
+    this.cycleDelayMs = options.cycleDelayMs || 1000;
 
     this.onCountChange = options.onCountChange || (() => {});
     this.onPaintingChange = options.onPaintingChange || (() => {});
