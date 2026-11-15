@@ -261,6 +261,7 @@ h1 em {
 
 /* Sections */
 .section {
+  margin-top: 4.5rem;
   margin-bottom: 1rem;
 }
 
