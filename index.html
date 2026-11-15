@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="ecru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Michelle Lo</title>
+  <meta name="description" content="Michelle Lo — Research Engineer at Google DeepMind." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Interactive Cross-Stitch Canvas Layer -->
+  <canvas id="stitch-canvas" aria-label="Interactive cross-stitch embroidery cloth"></canvas>
+
+  <!-- Top Header -->
+  <header class="site-header">
+    <div class="site-nav">
+      <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle linen theme" title="Switch cloth (Ecru / Midnight)">
+        <span class="theme-dot"></span>
+        <span class="theme-label">Ecru</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top" class="page-content">
+    <!-- Intro Card -->
+    <section class="hero">
+      <div class="hero-card patch-card prose-card">
+        <p class="eyebrow">Research Engineer · London</p>
+        <h1>Michelle Lo</h1>
+        <p>
+          I am currently a research engineer at DeepMind on the Autonomous Assistants team, working on multi-turn reinforcement learning and continual learning.
+        </p>
+      </div>
+    </section>
+
+    <div class="stitch-divider" aria-hidden="true">
+      <svg class="mini-stitch" viewBox="0 0 16 16"><path class="thread-a" d="M3 3 L13 13" /><path class="thread-b" d="M13 3 L3 13" /></svg>
+      <svg class="mini-stitch" viewBox="0 0 16 16"><path class="thread-a" d="M3 3 L13 13" /><path class="thread-b" d="M13 3 L3 13" /></svg>
+      <svg class="mini-stitch" viewBox="0 0 16 16"><path class="thread-a" d="M3 3 L13 13" /><path class="thread-b" d="M13 3 L3 13" /></svg>
+      <svg class="mini-stitch" viewBox="0 0 16 16"><path class="thread-a" d="M3 3 L13 13" /><path class="thread-b" d="M13 3 L3 13" /></svg>
+      <svg class="mini-stitch" viewBox="0 0 16 16"><path class="thread-a" d="M3 3 L13 13" /><path class="thread-b" d="M13 3 L3 13" /></svg>
+    </div>
+
+    <!-- Background Card -->
+    <section id="background" class="section">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2>Background</h2>
+      </div>
+      <div class="patch-card prose-card">
+        <p>
+          I joined DeepMind full-time after interning through the GDM Academy. Previously, I completed research and software engineering internships at G-Research on the Forecast Combination team, and at Google in London and Munich on the Android Runtime Cloud and Privacy teams. I graduated with First Class Honours in MEng Computer Science from Imperial College London. In my spare time, I enjoy cross-stitching. The background of this website is a live cross-stitch canvas that cycles through famous paintings—hover over any square to watch the threads unstitch and restitch.
+        </p>
+      </div>
+    </section>
+
+    <div class="stitch-divider" aria-hidden="true">
+      <svg class="mini-stitch" viewBox="0 0 16 16"><path class="thread-a" d="M3 3 L13 13" /><path class="thread-b" d="M13 3 L3 13" /></svg>
+      <svg class="mini-stitch" viewBox="0 0 16 16"><path class="thread-a" d="M3 3 L13 13" /><path class="thread-b" d="M13 3 L3 13" /></svg>
+      <svg class="mini-stitch" viewBox="0 0 16 16"><path class="thread-a" d="M3 3 L13 13" /><path class="thread-b" d="M13 3 L3 13" /></svg>
+      <svg class="mini-stitch" viewBox="0 0 16 16"><path class="thread-a" d="M3 3 L13 13" /><path class="thread-b" d="M13 3 L3 13" /></svg>
+      <svg class="mini-stitch" viewBox="0 0 16 16"><path class="thread-a" d="M3 3 L13 13" /><path class="thread-b" d="M13 3 L3 13" /></svg>
+    </div>
+
+    <!-- Connect / Footer -->
+    <footer id="connect" class="site-footer">
+      <div class="patch-card footer-card">
+        <div>
+          <h2>Connect</h2>
+          <p class="footer-sub">London, United Kingdom</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/in/michelle-wm-lo/" target="_blank" rel="noreferrer" class="btn btn-primary">LinkedIn</a>
+        </div>
+      </div>
+      <p class="colophon"><span id="stitch-count">0</span> stitches on the cloth</p>
+    </footer>
+  </main>
+
+  <!-- Current Painting Label -->
+  <div id="painting-label" class="painting-label" aria-live="polite">Monet: Water Lilies</div>
+
+  <script src="paintings.js"></script>
+  <script src="stitch-engine.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
