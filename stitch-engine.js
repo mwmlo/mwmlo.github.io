@@ -13,7 +13,8 @@ class StitchEngine {
     this.ctx = canvas.getContext('2d', { alpha: false });
     this.cellSize = options.cellSize || 8;
     this.theme = options.theme || 'ecru';
-    this.paintingId = options.paintingId || 'water-lilies';
+    this.paintingOrder = this.shuffleIds(Object.keys(Paintings));
+    this.paintingId = options.paintingId || this.paintingOrder[0];
     this.autoCycle = options.autoCycle !== false;
     this.cycleDelayMs = options.cycleDelayMs || 1000;
 
@@ -237,11 +238,20 @@ class StitchEngine {
     }
   }
 
+  shuffleIds(ids) {
+    const arr = ids.slice();
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
   scheduleNextPainting() {
     this.cancelAutoCycle();
     if (!this.autoCycle) return;
 
-    const ids = Object.keys(Paintings);
+    const ids = this.paintingOrder;
     const currentIdx = ids.indexOf(this.paintingId);
     const nextId = ids[(currentIdx + 1) % ids.length];
 

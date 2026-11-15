@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const engine = new StitchEngine(canvas, {
     cellSize: 8,
     theme: 'ecru',
-    paintingId: 'water-lilies',
     autoCycle: true,
     cycleDelayMs: 1000,
     onCountChange: (count) => {
