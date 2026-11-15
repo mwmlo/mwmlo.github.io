@@ -353,57 +353,6 @@ const Paintings = (() => {
     return pick(bgPalette, fbm(u * 10, v * 10) + d);
   }
 
-  /**
-   * 6. Michelangelo — The Creation of Adam (1512)
-   */
-  function creationOfAdam(u, v, col, row) {
-    const plasterPalette = ['#bfb097', '#ccbea6', '#d9ccb6', '#e5dac7', '#ede4d5'];
-    const earthPalette = ['#435234', '#556642', '#687a52', '#7d8f65', '#91a178'];
-    const skinPalette = ['#a67154', '#ba8364', '#cf9a7a', '#deb092', '#ebc4aa'];
-    const mantlePalette = ['#4d1c22', '#66262e', '#7d323b', '#96424c', '#ab545e'];
-    const robePalette = ['#b0a3ab', '#c4b8bf', '#d6ccd2', '#e6dfe3'];
-
-    const d = bayerDither(col, row, 0.2);
-
-    // Spark between fingertips
-    const sparkDist = Math.hypot((u - 0.50) * 1.45, v - 0.45);
-    if (sparkDist < 0.036) {
-      return sparkDist < 0.018 ? '#faf0c8' : '#edd58a';
-    }
-
-    // Left: Adam's arm & reclining body
-    const adamArmY = 0.47 + (0.48 - u) * 0.16;
-    if (u > 0.24 && u < 0.485 && Math.abs(v - adamArmY) < 0.028) {
-      return pick(skinPalette, 0.5 + (adamArmY - v) * 10 + d);
-    }
-    if (u > 0.11 && u < 0.34 && v > 0.45 && v < 0.79) {
-      const torsoDist = Math.hypot((u - 0.22) * 1.35, (v - 0.62) * 0.85);
-      if (torsoDist < 0.14) {
-        return pick(skinPalette, 0.45 + (0.65 - v) * 2.2 + fbm(u * 16, v * 16) * 0.25 + d);
-      }
-    }
-    if (v > 0.66 + (u - 0.1) * 0.45 && u < 0.43) {
-      return pick(earthPalette, fbm(u * 14, v * 14) + d);
-    }
-
-    // Right: God's outstretched arm, robe & billowing mantle
-    const godArmY = 0.445 + (u - 0.515) * 0.05;
-    if (u > 0.515 && u < 0.72 && Math.abs(v - godArmY) < 0.028) {
-      return u < 0.58 ? pick(skinPalette, 0.6 + d) : pick(robePalette, 0.55 + d);
-    }
-
-    const mantleDist = Math.hypot((u - 0.76) * 0.95, (v - 0.46) * 1.15);
-    if (mantleDist < 0.24 + (fbm(u * 12, v * 12) - 0.5) * 0.07) {
-      if (u > 0.62 && u < 0.78 && v > 0.35 && v < 0.57) {
-        return pick(robePalette, fbm(u * 16, v * 16) + d);
-      }
-      return pick(mantlePalette, fbm(u * 12, v * 12) + d);
-    }
-
-    // Crackled Sistine plaster sky
-    return pick(plasterPalette, fbm(u * 9, v * 9) + d);
-  }
-
   return {
     'water-lilies': {
       title: 'Monet: Water Lilies',
@@ -424,10 +373,6 @@ const Paintings = (() => {
     'sunflowers': {
       title: 'Van Gogh: Sunflowers',
       sample: sunflowers,
-    },
-    'creation-of-adam': {
-      title: 'Michelangelo: Creation of Adam',
-      sample: creationOfAdam,
     },
   };
 })();
